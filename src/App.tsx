@@ -4,7 +4,7 @@ import ConfigCard from './ConfigCard';
 const QueryEngine = require('@comunica/query-sparql-link-traversal').QueryEngine;
 
 
-const store = `https://pod.werbrouck.me/aecostore/store`
+const store = `https://raw.githubusercontent.com/AECOstore/RESOURCES/main/stores/root.ttl`
 
 const Store = ({ piral }) => {
   const [selectedStore, setSelectedStore] = React.useState(store)
@@ -30,6 +30,7 @@ const Store = ({ piral }) => {
 
     const results = await myEngine.queryBindings(query, { sources: [selectedStore] })
     const configs = await results.toArray()
+    console.log('configs :>> ', configs);
     const all = []
     configs.forEach(c => all.push({ 
       description: c.get('comment').id.replaceAll('"', ''), 
