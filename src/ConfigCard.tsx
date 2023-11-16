@@ -8,7 +8,8 @@ const ConfigCard = (props) => {
     const history = useHistory();
 
     function activate() {
-        history.push(route)
+      console.log('props :>> ', props);
+       history.push(route)
        activateConfig(url)
     }
 

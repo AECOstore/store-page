@@ -46,6 +46,7 @@ const Store = ({ piral }) => {
   }
 
   function setFeedUrl(config) {
+    console.log('config :>> ', config);
     piral.setData(constants.FEEDURL, config)
   }
 
@@ -63,7 +64,7 @@ const Store = ({ piral }) => {
           <Box>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {configs.map(item => {
-                return <Grid item key={item}>
+                return <Grid item key={item.url}>
                   <ConfigCard data={item} activateConfig={setFeedUrl} />
                 </Grid>
               })}
